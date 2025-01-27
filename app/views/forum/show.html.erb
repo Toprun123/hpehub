@@ -1,0 +1,30 @@
+<div class="forum-container">
+  <h2><%= @forum.title %></h2>
+  <p><%= @forum.content %></p>
+
+  <h3>Comments</h3>
+  <% @forum.comments.each do |comment| %>
+    <div class="comment">
+      <p><strong><%= comment.user.username %>:</strong> <%= comment.content %></p>
+      <p><em>Posted at: <%= comment.created_at.strftime("%Y-%m-%d %H:%M") %></em></p>
+      <% if comment.user == current_user || current_user.username == "Toprun123" %>
+        <%= button_to "Delete Comment", destroy_comment_path(comment.forum, comment), method: :delete, data: { confirm: "Are you sure?" } %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <h3>Post a Comment</h3>
+  <%= form_with model: @comment, url: forum_comments_path(@forum), local: true do |f| %>
+    <%= render "devise/shared/error_messages", resource: @comment %>
+    <div class="field">
+      <%= f.label :content, "Your Comment" %><br />
+      <%= f.text_area :content, required: true, placeholder: "Enter your comment" %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Post Comment" %>
+    </div>
+  <% end %>
+</div>
+<% if @forum.user == current_user || current_user.username == "Toprun123" %>
+  <%= button_to "Delete Forum", destroy_forum_path(@forum), method: :delete, data: { confirm: "Are you sure?" } %>
+<% end %>

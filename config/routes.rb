@@ -5,18 +5,13 @@ Rails.application.routes.draw do
 
   get "/about", to: "home#about"
   root "home#index"
-  get "/forum", to: "forum#index"
 
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
+  get "/forum", to: "forum#index", as: "forums"
+  get "/forum/new", to: "forum#new", as: "new_forum"
+  post "/forum", to: "forum#create", as: "forums_create"
+  get "/forum/:id", to: "forum#show", as: "forum"
+  post "/forum/:forum_id/comments", to: "forum#create_comment", as: "forum_comments"
+  delete "/forum/:id", to: "forum#destroy", as: "destroy_forum"
+  delete "/forum/:forum_id/comments/:comment_id", to: "forum#destroy_comment", as: "destroy_comment"
   get "up" => "rails/health#show", as: :rails_health_check
-
-  # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
-  # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
-  # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
-
-  # Defines the root path route ("/")
-  # root "posts#index"
 end
