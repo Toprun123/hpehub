@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "collaboration/index"
   devise_for :users
 
   get "/manifest.json", to: "pwa#manifest", as: :pwa_manifest
@@ -7,6 +8,8 @@ Rails.application.routes.draw do
   root "home#index"
   get "/about", to: "home#about"
   get "/contents", to: "home#contents", as: "contents"
+
+  get "/collaboration", to: "collaboration#index", as: "collaboration"
 
   get "/tools/blueprinter", to: "tools#blueprinter", as: "tools_blueprinter"
   get "/tools", to: "tools#index", as: "tools"
