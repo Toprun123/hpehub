@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
 
+  get "/manifest.json", to: "pwa#manifest", as: :pwa_manifest
+  get "/service-worker.js", to: "pwa#service_worker"
+
   get "/about", to: "home#about"
   root "home#index"
 
