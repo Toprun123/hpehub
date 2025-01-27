@@ -1,12 +1,13 @@
 <%= stylesheet_link_tag 'pages/forum', media: 'all' %>
 
-<h1>Forum#index</h1>
-All posts:
-<br/>
-<br/>
-<% @forums.each do |post| %>
-  <%= link_to post.title, forum_path(post) %><br/>
-<% end %>
-<br/>
-<br/>
-<%= link_to "Create a new post", new_forum_path %>
+<h1>Learning by Sharing</h1>
+
+<h2>All posts:</h2>
+
+<div class="posts_list">
+  <% @forums.each do |post| %>
+    <%= link_to post.title, forum_path(post) %><br/>
+  <% end %>
+</div>
+
+<%= button_to "Create a new post", new_forum_path, method: :get, class: "submit" %>

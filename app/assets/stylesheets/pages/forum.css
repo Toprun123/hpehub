@@ -3,6 +3,8 @@
 .main {
   padding: 30px;
   text-align: center;
+  place-items: center;
+  display: grid;
 }
 
 .main * {
@@ -13,4 +15,27 @@
   width: 500px;
   margin: 0 auto;
   padding: 20px;
+}
+
+.posts_list {
+  padding: 10px;
+  margin-bottom: 30px;
+}
+
+.submit {
+  margin-top: 20px;
+  padding: 5px 10px;
+  font-size: 16px;
+  font-family: "hurmit";
+  background-color: var(--primary);
+  color: var(--bg);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.submit:hover {
+  background-color: var(--bg);
+  color: var(--primary);
 }
