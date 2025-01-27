@@ -7,22 +7,88 @@
     <meta name="mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= yield :head %>
-
     <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
     <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
-
-    <link rel="icon" href="/icon.png" type="image/png">
-    <link rel="icon" href="/icon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/icon.png">
-
+    <%= favicon_link_tag 'icon.svg' %>
     <%# Includes all stylesheet files in app/assets/stylesheets %>
-    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "fonts", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "root", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "main", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "tooltip", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
   <body>
-    <%= yield %>
+    <div class="header">
+      <div class="header-logo">
+        <a href="/"> </a>
+      </div>
+      <div class="header-links">
+        <div class="header-link-card">
+          <%= link_to " ", "https://github.com/Toprun123/hpehub", class: "header-link", target: "_blank" %>
+          <span class="header-link-underline"></span>
+        </div>
+        <div class="header-link-card">
+          <%= link_to "Collaboration", "collaboration_path", class: "header-link" %>
+          <span class="header-link-underline"></span>
+        </div>
+        <div class="header-link-card">
+          <%= link_to "Forum", forum_path, class: "header-link" %>
+          <span class="header-link-underline"></span>
+        </div>
+        <div class="header-link-card">
+          <%= link_to "Tools", "tools_path", class: "header-link" %>
+          <span class="header-link-underline"></span>
+        </div>
+        <div class="header-link-card">
+          <%= link_to "About", about_path, class: "header-link" %>
+          <span class="header-link-underline"></span>
+        </div>
+        <span class="sep"></span>
+        <% if user_signed_in? %>
+          <div class="header-link-card">
+            <%= link_to "Logout", destroy_user_session_path, class: "header-link", data: { method: :delete } %>
+            <span class="header-link-underline"></span>
+          </div>
+          <div class="header-link-card">
+            <%= link_to "Settings", edit_user_registration_path, class: "header-link" %>
+            <span class="header-link-underline"></span>
+          </div>
+        <% else %>
+          <div class="header-link-card">
+            <%= link_to "Login", new_user_session_path, class: "header-link" %>
+            <span class="header-link-underline"></span>
+          </div>
+          <div class="header-link-card">
+            <%= link_to "Signup", new_user_registration_path, class: "header-link" %>
+            <span class="header-link-underline"></span>
+          </div>
+        <% end %>
+        <div class="header-link-card">
+          <span class="mode-toggle" id="mode-toggle">  </span>
+        </div>
+      </div>
+    </div>
+    <span class="header-space"></span>
+    <div class="main">
+      <%= yield %>
+    </div>
+    <div class="footer">
+      <table class="footer-table">
+        <tr>
+          <th>    Links</th>
+          <th>    Find us</th>
+        </tr>
+        <tr>
+          <td><a href="/">  Home  </a></td>
+          <td><a href="https://github.com/Toprun123/hpehub">  GitHub Repo  </a></td>
+        </tr>
+        <tr>
+          <td><a href="/about">  About  </a></td>
+          <td><a href="mailto:syed@sixzix.com">  syed@sixzix.com  </a></td>
+        </tr>
+      </table>
+      <p>Copyright &copy; 2025 Hpehub.    Website design made with ❤ on   by Syed.</p>
+    </div>
   </body>
 </html>

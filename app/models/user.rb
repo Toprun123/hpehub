@@ -1,8 +1,8 @@
 class User < ApplicationRecord
-  # Validations for name and email
-  validates :name, presence: true
-  validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
 
-  # Password validation
-  has_secure_password  # This automatically adds password-related functionality
+  validates :username, presence: true, uniqueness: true
 end

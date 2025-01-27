@@ -1,0 +1,38 @@
+<%= stylesheet_link_tag 'pages/index', media: 'all' %>
+
+<div class="banner">
+  <h1>Welcome to Hpehub.</h1>
+  <p>
+    Hpehub is a place to find the best assesment tools. It is a free and open source project.<br/>
+    <br/>
+    <button class="btn-learn">Learn more  </button>
+  </p>
+</div>
+
+<div class="loginfo">
+  <br>
+  <% if user_signed_in? %>
+    <p>Logged in as <span class="bold"><%= current_user.email %></span></p>
+  <% else %>
+    <p>Not logged in</p>
+  <% end %>
+  <br>
+</div>
+
+<div class="tools">
+  <div class="tool-card">
+    <h3>Tool 1</h3>
+    <p>Description of tool 1</p>
+  </div>
+  <div class="tool-card">
+    <h3>Tool 2</h3>
+    <p>Description of tool 2</p>
+  </div>
+  <div class="tool-card">
+    <h3>Tool 3</h3>
+    <p>Description of tool 3</p>
+  </div>
+</div>
+
+
+

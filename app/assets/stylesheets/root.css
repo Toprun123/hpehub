@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+:root {
+  --bg: #ffffff;
+  --bg-foot: #303846;
+  --primary: #25c2a0;
+  --secondary: #cbf4ec;
+  --neutral: #addf00;
+  --suplimentary-1: #68c5a2;
+  --suplimentary-2: #778fb6;
+  --suplimentary-3: #4f85a5;
+  --link: #62a0e1;
+  --link-hover: #abccee;
+  --color: #000000;
+  --err: #ef2f2f;
+}
