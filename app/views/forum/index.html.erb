@@ -1,6 +1,12 @@
 <%= stylesheet_link_tag 'pages/forum', media: 'all' %>
 
 <h1>Forum#index</h1>
-<p>Find me in app/views/forum/index.html.erb</p>
-
-<%= link_to "New Forum", new_forum_path %>
+All posts:
+<br/>
+<br/>
+<% @forums.each do |post| %>
+  <%= link_to post.title, forum_path(post) %><br/>
+<% end %>
+<br/>
+<br/>
+<%= link_to "Create a new post", new_forum_path %>
