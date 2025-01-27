@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   get "/manifest.json", to: "pwa#manifest", as: :pwa_manifest
   get "/service-worker.js", to: "pwa#service_worker"
 
-  get "/about", to: "home#about"
   root "home#index"
+  get "/about", to: "home#about"
+  get "/contents", to: "home#contents", as: "contents"
 
   get "/tools/blueprinter", to: "tools#blueprinter", as: "tools_blueprinter"
   get "/tools", to: "tools#index", as: "tools"

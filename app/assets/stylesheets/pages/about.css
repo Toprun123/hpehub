@@ -2,5 +2,20 @@
 
 .main {
   text-align: center;
+  place-items: center;
+  display: grid;
   margin-bottom: 50px;
+}
+
+h1 {
+  margin-bottom: 10px;
+}
+
+.contents-list {
+  width: auto;
+}
+
+li {
+  padding: 5px;
+  list-style-type: none;
 }
