@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   get "/about", to: "home#about"
   root "home#index"
 
-  get "/tools/blueprinter", to: "tools#blueprinter", as: "tools"
-  get "/tools/index", to: "tools#index", as: "tools_index"
+  get "/tools/blueprinter", to: "tools#blueprinter", as: "tools_blueprinter"
+  get "/tools", to: "tools#index", as: "tools"
 
   get "/forum", to: "forum#index", as: "forums"
   get "/forum/new", to: "forum#new", as: "new_forum"
