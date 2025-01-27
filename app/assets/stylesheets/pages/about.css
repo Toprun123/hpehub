@@ -13,6 +13,7 @@ h1 {
 
 .contents-list {
   width: auto;
+  padding: 0;
 }
 
 li {
