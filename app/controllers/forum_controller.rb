@@ -22,7 +22,7 @@ class ForumController < ApplicationController
     end
   end
   def create_comment
-    @forum = Forum.find_by(params[:forum_id])
+    @forum = Forum.find_by(id: params[:forum_id])
     if @forum.nil?
       redirect_to forums_path, alert: "Forum not found."
       return
@@ -35,7 +35,7 @@ class ForumController < ApplicationController
     end
   end
   def destroy
-    @forum = Forum.find_by(params[:forum_id])
+    @forum = Forum.find_by(id: params[:forum_id])
     if @forum.nil?
       redirect_to forums_path, alert: "Forum not found."
       return
@@ -48,7 +48,7 @@ class ForumController < ApplicationController
     end
   end
   def destroy_comment
-    @comment = Comment.find_by(params[:comment_id])
+    @comment = Comment.find_by(id: params[:comment_id])
     if @comment.nil?
       redirect_to forums_path, alert: "Comment not found."
       return
