@@ -2,7 +2,7 @@
 
 <div class="form-container">
   <h1>Account Settings</h1>
-  <p>You can edit the fields (Usernam and Email) that you want to change. New Password can be left blank if you don't want to change it.</p>
+  <p>You can edit the fields (Username and Email) that you want to change. New Password can be left blank if you don't want to change it.</p>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
     <div class="inputs">
