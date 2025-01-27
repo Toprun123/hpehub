@@ -1,17 +1,19 @@
+<%= stylesheet_link_tag 'pages/forum', media: 'all' %>
+
 <div class="form-container">
-  <h2>Create Forum</h2>
+  <h2>Create Post</h2>
   <%= form_with model: @forum, url: forums_create_path, local: true do |f| %>
     <%= render "devise/shared/error_messages", resource: @forum %>
     <div class="field">
-      <%= f.label :title, "Forum Title" %><br />
-      <%= f.text_field :title, required: true, placeholder: "Enter forum title" %>
+      <%= f.label :title, "Post Title" %><br />
+      <%= f.text_field :title, required: true, placeholder: "Enter post title" %>
     </div>
     <div class="field">
-      <%= f.label :content, "Forum Content" %><br />
-      <%= f.text_area :content, required: true, placeholder: "Enter forum content" %>
+      <%= f.label :content, "Post Content" %><br />
+      <%= f.text_area :content, required: true, placeholder: "Enter post content" %>
     </div>
     <div class="actions">
-      <%= f.submit "Create Forum" %>
+      <%= f.submit "Create Post" %>
     </div>
   <% end %>
 </div>

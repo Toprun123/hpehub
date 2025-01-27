@@ -1,1 +1,16 @@
 @charset "UTF-8";
+
+.main {
+  padding: 30px;
+  text-align: center;
+}
+
+.main * {
+  text-align: left;
+}
+
+.forum-container {
+  width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+}

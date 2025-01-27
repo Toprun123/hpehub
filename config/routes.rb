@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
-  get "forum/index"
-  get "home/index"
   devise_for :users
 
   get "/about", to: "home#about"
   root "home#index"
+
+  get "/tools/blueprinter", to: "tools#blueprinter", as: "tools"
+  get "/tools/index", to: "tools#index", as: "tools_index"
 
   get "/forum", to: "forum#index", as: "forums"
   get "/forum/new", to: "forum#new", as: "new_forum"
@@ -13,5 +14,6 @@ Rails.application.routes.draw do
   post "/forum/:forum_id/comments", to: "forum#create_comment", as: "forum_comments"
   delete "/forum/:id", to: "forum#destroy", as: "destroy_forum"
   delete "/forum/:forum_id/comments/:comment_id", to: "forum#destroy_comment", as: "destroy_comment"
+
   get "up" => "rails/health#show", as: :rails_health_check
 end

@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag 'pages/forum', media: 'all' %>
+
 <div class="forum-container">
   <h2><%= @forum.title %></h2>
   <p><%= @forum.content %></p>
@@ -24,7 +26,7 @@
       <%= f.submit "Post Comment" %>
     </div>
   <% end %>
+  <% if @forum.user == current_user || current_user.username == "Toprun123" %>
+    <%= button_to "Delete Post", destroy_forum_path(@forum), method: :delete, data: { confirm: "Are you sure?" } %>
+  <% end %>
 </div>
-<% if @forum.user == current_user || current_user.username == "Toprun123" %>
-  <%= button_to "Delete Forum", destroy_forum_path(@forum), method: :delete, data: { confirm: "Are you sure?" } %>
-<% end %>
